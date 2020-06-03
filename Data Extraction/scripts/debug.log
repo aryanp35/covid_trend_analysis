@@ -1,0 +1,7 @@
+[0529/173151.956:ERROR:file_io_win.cc(179)] CreateFile C:\Users\suran\AppData\Local\Temp\scoped_dir16852_20055\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0529/232710.904:ERROR:file_io_win.cc(179)] CreateFile C:\Users\suran\AppData\Local\Temp\scoped_dir21604_18850\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0530/001446.242:ERROR:file_io_win.cc(179)] CreateFile C:\Users\suran\AppData\Local\Temp\scoped_dir12940_8985\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0603/221633.775:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0603/221633.787:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0603/221633.794:ERROR:exception_snapshot_win.cc(98)] thread ID 9040 not found in process
+[0603/221633.795:ERROR:exception_snapshot_win.cc(98)] thread ID 3916 not found in process
