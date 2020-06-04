@@ -60,7 +60,7 @@ driver.implicitly_wait(40)
 
 
 
-## For Gender
+## For Saved Search and Demographics page
 try :
     #moves cursor to a saved search
     ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[2]/div/div/free-search-page/div/div[1]/div/div[2]/div/div/div/div[1]/ul/li[2]/span[1]")).perform()
@@ -75,7 +75,9 @@ try :
     driver.find_element_by_xpath("/html/body/div[2]/div/div/free-search-page/div/div[1]/div[1]/div/div[4]/div/div/i").click()
     
     driver.implicitly_wait(6)
-    
+except:
+    PrintException()
+try:  
     # moves cursor then clicks on the 3 dots to the graph
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div/div/free-search-page/div/div[1]/div[2]/div[4]/div/div/div/tw-grid/div/div[2]/tw-widget-placeholder[1]/div/div/tw-widget/div/tw-widget-body/div")))
     ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[2]/div/div/free-search-page/div/div[1]/div[2]/div[4]/div/div/div/tw-grid/div/div[2]/tw-widget-placeholder[1]/div/div/tw-widget/div/tw-widget-body/div")).perform()
@@ -84,10 +86,13 @@ try :
     driver.implicitly_wait(2)
 
     # moves to export option
-    ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[3]/ul/li/menuitem")).perform()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "icon2-tw-export")))
+    ActionChains(driver).move_to_element(driver.find_element_by_class_name("icon2-tw-export ")).perform()
     
+    driver.implicitly_wait(3)
+
     # clicks on csv option
-    driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[3]/ul/li/ul/li[4]/menuitem/div/i").click()
+    driver.find_element_by_class_name("icon-tw-csv").click()
     driver.implicitly_wait(10)
     
     #downloads the .csv file
@@ -136,12 +141,13 @@ try:
     driver.implicitly_wait(3)
 
     # moves to export option
-    ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[3]/ul/li/menuitem")).perform()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "icon2-tw-export")))
+    ActionChains(driver).move_to_element(driver.find_element_by_class_name("icon2-tw-export ")).perform()
     
     driver.implicitly_wait(3)
 
     # clicks on csv option
-    driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[3]/ul/li/ul/li[4]/menuitem/div/i").click()
+    driver.find_element_by_class_name("icon-tw-csv").click()
     driver.implicitly_wait(10)
     
     #downloads the .csv file
@@ -191,12 +197,13 @@ try:
     driver.implicitly_wait(3)
 
     # moves to export option
-    ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[3]/ul/li/menuitem")).perform()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "icon2-tw-export")))
+    ActionChains(driver).move_to_element(driver.find_element_by_class_name("icon2-tw-export ")).perform()
     
     driver.implicitly_wait(3)
 
     # clicks on csv option
-    driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[3]/ul/li/ul/li[4]/menuitem/div/i").click()
+    driver.find_element_by_class_name("icon-tw-csv").click()
     driver.implicitly_wait(10)
     
     #downloads the .csv file
@@ -244,13 +251,13 @@ try:
     driver.implicitly_wait(3)
 
     # moves to export option
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]/div/ul/li[4]/ul/li/menuitem")))
-    ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[4]/ul/li/menuitem")).perform()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "icon2-tw-export")))
+    ActionChains(driver).move_to_element(driver.find_element_by_class_name("icon2-tw-export ")).perform()
     
     driver.implicitly_wait(3)
 
     # clicks on csv option
-    driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[4]/ul/li/ul/li[4]/menuitem/div/i").click()
+    driver.find_element_by_class_name("icon-tw-csv").click()
     driver.implicitly_wait(10)
     
     #downloads the .csv file
@@ -299,12 +306,13 @@ try:
     driver.find_element_by_xpath("/html/body/div[2]/div/div/free-search-page/div/div[1]/div[2]/div[4]/div/div/div/tw-grid/div/div[2]/tw-widget-placeholder[5]/div/div/tw-widget/div/div/button").click()
     driver.implicitly_wait(3)
     # moves to export option
-    ActionChains(driver).move_to_element(driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[4]/ul/li/menuitem")).perform()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "icon2-tw-export")))
+    ActionChains(driver).move_to_element(driver.find_element_by_class_name("icon2-tw-export ")).perform()
     
     driver.implicitly_wait(3)
 
     # clicks on csv option
-    driver.find_element_by_xpath("/html/body/div[4]/div/ul/li[4]/ul/li/ul/li[4]/menuitem/div/i").click()
+    driver.find_element_by_class_name("icon-tw-csv").click()
     driver.implicitly_wait(10)
     
     #downloads the .csv file
