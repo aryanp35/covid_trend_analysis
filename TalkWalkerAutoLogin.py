@@ -56,32 +56,13 @@ def sub_topic(i):
     element[i].click()
     
 def scrolling_down():
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
+    for i in range(13):
+            browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(5)
     browser.execute_script("window.scrollTo(0, 0)") 
 
 #Renaming of the file and saving it in a differnt folder
-#Please change your folder of deposit and folder of downlaod accordingly.
+#Please change your folder of deposit and folder of download accordingly.
 def tiny_file_rename(newname, folder_of_download,folder_of_deposit):
     filename = max([f for f in os.listdir(folder_of_download)], key=lambda xa :   os.path.getctime(os.path.join(folder_of_download,xa)))
     if '.part' in filename:
@@ -108,16 +89,18 @@ def log_in(passwordStr,usernameStr):
 
 
 # In[52]:
-
-#login to the website
+#login
 usernameStr="wefder02@gmail.com"
 passwordStr="asdf1234"
+today = DT.date.today()
+week_ago = today - DT.timedelta(days=7)
+
 # Step 1) Open chrome 
 browser = webdriver.Chrome()
 # Step 2) Navigate to Talkwalker
 browser.get("https://app.talkwalker.com/app/login")
 # Step 3) Search & Enter the Email or Phone field & Enter Password
-browser.set_window_size(100000, 100000)
+browser.maximize_window()
 browser.implicitly_wait(15)
 element = browser.find_element_by_xpath("//input[@name='email_sign_in']")
 element.send_keys(usernameStr)
@@ -132,10 +115,10 @@ element=browser.find_element_by_class_name("saved-search-item")
 element.click()
 time.sleep(2)
 
-# time details of tweets
+# time mention of tweets
 excel_extract(1)
 name=browser.find_element_by_xpath("//*[@id='page_content']/div[2]/div/div/div/div[2]/div[1]/div/div[1]").text
-namelat=name+ ' mention_over_time' + ' hello'+'.xls'
+namelat=name+ '-mention_over_time-' +  str(today)+ '-to-' + str(week_ago)+'.xls'
 time.sleep(2)
 tiny_file_rename(namelat,'D:\Downloads','D:\Covid_talkwalker')
 refresh_page()
@@ -143,7 +126,7 @@ refresh_page()
 #themes
 sub_topic(1)
 excel_extract(0)
-namelat=name+ ' theme' + ' hello'+'.xls'
+namelat=name+ '-theme-' +  str(today)+ '-to-' + str(week_ago)+'.xls'
 time.sleep(2)
 tiny_file_rename(namelat,'D:\Downloads','D:\Covid_talkwalker')
 browser.execute_script("window.scrollTo(0, 0)") 
@@ -153,7 +136,7 @@ time.sleep(5)
 element=browser.find_element_by_xpath("//*[@id='page_content']/div[4]/div/div/div/tw-grid/div/div[2]/tw-widget-placeholder/div/div/tw-widget/div/tw-widget-body/div/div/div[1]/div/tw-widget-menus-top/div/widget-topic-menu-select/div/div/div/div[2]")
 element.click()
 excel_extract(0)
-namelat=name+ ' hash_tag' + ' hello'+'.xls'
+namelat=name+ '-hash_tag-' +  str(today)+ '-to-' + str(week_ago)+'.xls'
 time.sleep(2)
 tiny_file_rename(namelat,'D:\Downloads','D:\Covid_talkwalker')
 refresh_page()
@@ -161,7 +144,7 @@ refresh_page()
 #influencer
 sub_topic(2)
 excel_extract(0)
-namelat=name+ ' influencer' + ' hello'+'.xls'
+namelat=name+ '-influencer-' +  str(today)+ '-to-' + str(week_ago)+'.xls'
 time.sleep(2)
 tiny_file_rename(namelat,'D:\Downloads','D:\Covid_talkwalker')
 refresh_page()
@@ -169,7 +152,7 @@ refresh_page()
 #World Map
 sub_topic(4)
 excel_extract(0)
-namelat=name+ ' world_map' + ' hello'+'.xls'
+namelat=name+ '-world_map-' +  str(today)+ '-to-' + str(week_ago)+'.xls'
 time.sleep(2)
 tiny_file_rename(namelat,'D:\Downloads','D:\Covid_talkwalker')
 refresh_page()
@@ -178,8 +161,7 @@ refresh_page()
 sub_topic(5)
 scrolling_down()
 excel_extract(0)
-namelat=name+ ' all_results' + ' hello'+'.xls'
+namelat=name+ '-all_results-' +  str(today)+ '-to-' + str(week_ago)+'.xls'
 time.sleep(2)
 tiny_file_rename(namelat,'D:\Downloads','D:\Covid_talkwalker')
 refresh_page()
-
