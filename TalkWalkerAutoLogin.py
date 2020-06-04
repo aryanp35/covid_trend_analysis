@@ -3,7 +3,7 @@
 
 # In[14]:
 
-
+# importing important libraries
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys 
 from selenium.webdriver.common.by import By
@@ -21,6 +21,7 @@ import time
 
 
 def excel_extract(i):
+    #mouse hovering at widget head button
     action = ActionChains(browser)
     element=browser.find_elements_by_class_name("widget-head")
     action.move_to_element(element[i]).perform()
@@ -36,6 +37,7 @@ def excel_extract(i):
     element=browser.find_element_by_class_name("icon-tw-xls")
     element.click()
     time.sleep(2)
+    #extracting the download link
     element=browser.find_element_by_link_text("here").get_attribute('href')
     browser.get(element)
 
@@ -46,6 +48,7 @@ def refresh_page():
     element=browser.find_element_by_class_name("saved-search-item")
     element.click()
 
+#selecting the sub-menu
 def sub_topic(i):
     action = ActionChains(browser)
     element=browser.find_elements_by_class_name("identity-icon-component")
@@ -77,6 +80,8 @@ def scrolling_down():
     time.sleep(5)
     browser.execute_script("window.scrollTo(0, 0)") 
 
+#Renaming of the file and saving it in a differnt folder
+#Please change your folder of deposit and folder of downlaod accordingly.
 def tiny_file_rename(newname, folder_of_download,folder_of_deposit):
     filename = max([f for f in os.listdir(folder_of_download)], key=lambda xa :   os.path.getctime(os.path.join(folder_of_download,xa)))
     if '.part' in filename:
@@ -104,7 +109,9 @@ def log_in(passwordStr,usernameStr):
 
 # In[52]:
 
-
+#login to the website
+usernameStr="wefder02@gmail.com"
+passwordStr="asdf1234"
 # Step 1) Open chrome 
 browser = webdriver.Chrome()
 # Step 2) Navigate to Talkwalker
