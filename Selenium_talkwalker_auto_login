@@ -43,30 +43,12 @@ def sub_topic(i):
     element[i].click()
     
 def scrolling_down():
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(5)
+    for i in 1:12:
+        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(5)    
     browser.execute_script("window.scrollTo(0, 0)") 
 
+#Renaming the file and saving it in different folder
 def tiny_file_rename(newname, folder_of_download,folder_of_deposit):
     filename = max([f for f in os.listdir(folder_of_download)], key=lambda xa :   os.path.getctime(os.path.join(folder_of_download,xa)))
     if '.part' in filename:
